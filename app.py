@@ -1,3 +1,7 @@
+"""
+Aplicación de Visualización del Algoritmo de Dijkstra.
+Desarrollada para Streamlit con soporte de pasos manuales y visualización con Graphviz.
+"""
 import streamlit as st
 import graphviz
 from dijkstra_logic import DijkstraSolver
