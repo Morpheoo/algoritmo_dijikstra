@@ -184,7 +184,7 @@ if st.session_state.simulation_steps:
         st.graphviz_chart(dot, use_container_width=True)
         
         # Navigation Buttons
-        c1, c2, c3, c4 = st.columns([1,1,1,1])
+        c1, c2, c3, c4, c5 = st.columns([1,1,1,1,1.5]) # Added one more column and adjusted ratios
         with c1:
             if st.button("⬅ Anterior") and curr_idx > 0:
                 st.session_state.current_step_idx -= 1
@@ -193,7 +193,11 @@ if st.session_state.simulation_steps:
             if st.button("Siguiente ➡") and curr_idx < len(steps) - 1:
                 st.session_state.current_step_idx += 1
                 st.rerun()
-        with c4:
+        with c3:
+            if st.button("🎯 Ver Solución"):
+                st.session_state.current_step_idx = len(steps) - 1
+                st.rerun()
+        with c5:
             if st.button("🔄 Reiniciar"):
                 st.session_state.current_step_idx = 0
                 st.rerun()
